@@ -1,0 +1,80 @@
+.c-h{
+    position: relative;
+}
+.contain{
+    width: 98%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#content .cartproducts ul{
+    margin-top: 10px;
+}
+.cartcnt{
+    display: inline-block;
+    font-size: 22px;
+    position: absolute;
+    top: 18px;
+    left: 90px;
+}
+#cartproduct li{
+    margin-top: 15px;
+    background-color: #ffff;
+    display: flex;
+    padding: 30px;
+    position: relative;
+    height: 200px;
+}
+#cartproduct li span{
+    display: block;
+    margin-left: 25px;
+    position: absolute;
+}
+#cartproduct li .name{
+    top: 15%;
+    font-weight: bold;
+    font-size: 20px;
+    left: 23%;
+}
+#cartproduct li .pprice{
+    top: 45%;
+    color: #388E3C; 
+    left: 24.5%;
+}
+#cartproduct li .curr{
+    top: 45%;
+    color: #388E3C; 
+    left: 23%;
+}
+#cartproduct li .delbtn{
+    display: inline-block;
+    position: absolute;
+    height: 30px;
+    width: 50px;
+    bottom: 10%;
+    left: 25%;
+    border: 0 none;
+    outline: 0 none;
+    color: #fff;
+    border-radius: 10%;
+    background-color:#2874F0; 
+}
+#cartproduct li img{
+    width: 7%;
+}
+#content .sec-c-01{
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between
+}
+#content .p-total{
+    display: flex;
+    margin: 10px 50px 0px 0px;
+}
+#content .p-total span{
+    padding-top: 10px;
+    font-size: 20px;
+    color: #388E3C;
+}
+#content .p-total .rup{
+    padding-left: 15px;
+}

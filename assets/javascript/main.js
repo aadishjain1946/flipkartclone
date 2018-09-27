@@ -1,0 +1,203 @@
+window.addEventListener("load",initevent);
+var slideIndex = 1;
+function initevent(){
+    var container = document.getElementById("container");
+    var intro = document.getElementById("intro");
+    // console.log(container);
+    container.style.display = "none"; 
+    intro.style.display = "initial"; 
+    setTimeout(load,1900);
+    loadProducts();
+}
+function load(){
+    intro.style.display = "none"; 
+    container.style.display = "initial"; 
+    showDivs(slideIndex);
+    document.getElementById("btn-clk0").addEventListener("click",minus);
+    document.getElementById("btn-clk1").addEventListener("click",plus);
+    showAllProducts();
+}
+// ------------------------------------SLIDER-----------------------------
+function minus(){
+    plusDivs(-1);
+}
+function plus(){
+    plusDivs(1);
+}
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("myslides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.transform = "translateX(100%)";  
+  }
+  x[slideIndex-1].style.transform = "translateX(0%)";  
+  if ( n != 1)
+  x[slideIndex-2].style.transform = "translateX(-100%)";  
+  if(slideIndex == x.length)
+  x[0].style.transform = "translateX(-100%)";  
+}
+
+// -------------------------CONTENT---------------------------------------------
+function showAllProducts(){
+    var rupee=document.getElementById("rupee").innerHTML;
+        var ul1 = document.getElementById("smartphones");
+        var ul2 = document.getElementById("watches");
+        var ul3 = document.getElementById("health");
+        var ul4 = document.getElementById("footwear");
+        ul1.innerHTML = "";
+        ul2.innerHTML = "";
+        ul3.innerHTML = "";
+        ul4.innerHTML = "";
+        for(var i = 0; i < products.length; i++){
+            var li = document.createElement("li");
+            li.className = 'product';
+            li.setAttribute('title', products[i].p_id);
+            // li.className = 'list-group-item product';
+            var p_name = document.createElement("span");
+            p_name.className = 'name';
+            p_name.innerHTML = products[i].p_name;
+            var p_price = document.createElement("span");
+            p_price.className = 'price';
+            var p_curr = document.createElement("span");
+            p_curr.className = 'currency';
+            p_curr.innerHTML = rupee;
+            p_price.innerHTML = products[i].p_price;
+            var p_image = document.createElement("img");
+            p_image.className = 'productImage';
+            p_image.setAttribute('src', products[i].p_image);
+            var p_quantity = document.createElement("span");
+            p_quantity.innerHTML = products[i].p_quantity;
+            // console.log(p_quantity);
+            p_quantity.className = 'pquan';
+            var cart_button = document.createElement("button");
+            cart_button.innerHTML = "Add to Cart";
+            cart_button.className = 'cart-btn';
+            li.appendChild(p_image);
+            li.appendChild(p_name);
+            li.appendChild(p_price);
+            li.appendChild(p_curr);
+            li.appendChild(cart_button);
+            li.appendChild(p_quantity);
+            var idcal = products[i].p_id/100;
+            cal = parseInt(idcal);
+            if( cal == 1)
+            ul1.appendChild(li);
+            if( cal == 2)
+            ul2.appendChild(li);
+            if( cal == 3)
+            ul3.appendChild(li);
+            if( cal == 4)
+            ul4.appendChild(li);
+            cart_button.addEventListener("click", add);
+        }
+    pbtn();
+}
+function pbtn(){
+    var pbtn2 = document.getElementsByClassName("p-btn1");
+    var pbtn1 = document.getElementsByClassName("p-btn0");
+    for( var i = 0; i < pbtn2.length; i++){
+        pbtn2[i].addEventListener("click", ptrrig);
+        pbtn2[i].style.display = "initial";
+        pbtn1[i].addEventListener("click", ptrlef);
+    }
+}
+function ptrrig(){
+    // console.log("executed");
+    var m = event.srcElement.parentElement;
+    var n = m.childNodes[3];
+    var o = m.childNodes[5];
+    m = m.childNodes[1];
+    // console.log(m);
+    m.className = 'btn-transform0';
+    o.style.display = "none";
+    n.style.display = "initial";
+    // console.log("asdad",o);
+}
+function ptrlef(){
+    // console.log("executed");
+    var m = event.srcElement.parentElement;
+    var n = m.childNodes[5];
+    var o = m.childNodes[3];
+    m = m.childNodes[1];
+    // console.log(m);
+    m.className = 'btn-transform1';
+    o.style.display = "none";
+    n.style.display = "initial";
+}
+function add(){
+    var elem = event.srcElement.parentNode;
+    console.log(elem);
+    var product = elem.childNodes;
+    console.log(product);
+    var b =0;
+    var elemId = elem.title;
+    for(var i = 0; i < obj.itemList.length; i++){
+        if(elemId == obj.itemList[i].id)
+         b=1;
+        else
+        b=0;
+    }
+    if(b == 0){
+        var h = product[5].innerHTML;
+        h++;
+        obj.addItem(elemId, product[1].innerHTML, product[2].innerHTML, product[0].src, h);
+        cartCount();
+        notify();
+        saveChanges();
+    }
+    else if(b == 1){
+        window.alert("product already in cart...");
+    }
+}
+
+function cartCount(){
+    count = obj.cartCounter();
+    document.getElementById("counter").innerHTML = count;
+}
+function calculateTotal(){
+    var price = 0;
+    for(var i = 0; i < obj.itemList.length; i++){
+        price += parseInt(obj.itemList[i].price);
+    }
+    document.getElementById("total").innerHTML = price;
+}
+function notify(){
+    Notification.requestPermission(function(){
+        // console.log("Notify User");
+        var n = new Notification("Online Shopping : BMPL", {
+            body : "Product added to cart",
+            icon : "assets/images/success.png"
+        });
+
+        setTimeout(function(){
+            n.close();
+            // console.log("Notify User...");
+        },2000);
+
+    });
+}
+function saveChanges(){
+    if(window.localStorage){
+        var json = JSON.stringify(obj.itemList);
+        // console.log(json);
+        localStorage.setItem('cartProducts',json);
+    }
+    else {
+        alert("Localstorage not supported...");
+    }
+}
+function loadProducts(){
+    if(localStorage.cartProducts){
+        var data = JSON.parse(localStorage.cartProducts);
+        obj.itemList = data;
+        // printItems();
+        // calculateTotal();
+        cartCount();
+    }
+}

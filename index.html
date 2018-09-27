@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books &amp; More. Exclusive Offers!</title>
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+    <link rel="stylesheet" href="assets/stylesheets/fontawesome-all.min.css">
+    <link rel="icon" href="https://seeklogo.com/images/F/flipkart-logo-3F33927DAA-seeklogo.com.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="assets/javascript/model.js"></script>
+    <script src="assets/javascript/products.js"></script>
+    <script src="assets/javascript/main.js"></script>
+</head>
+<body>
+    <div id="top"></div>
+    <a href="#top" class="backToTop"><i class="fas fa-arrow-up"></i></a>
+    <div id="rupee">&#8377;</div>
+    <div id="intro">
+        <div class="shadow">
+        </div>        
+        <div class="logo">
+            <div class="flipkart">
+                <img src="assets/images/flipkart-logo-3F33927DAA-seeklogo.com.png" alt="img">
+                <br>
+                <img src="assets/images/flipkartlogo.png" alt="img">
+            </div>
+        </div>
+    </div>
+    <div id="container">
+        <header id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="head-left">
+                        <div class="logo">
+                            <a href="#">
+                                <img src="assets/images/flipkartlogo.png" alt="logo" class="loimg">
+                            </a>
+                            <a href="#" class="sublogo">
+                                Explore
+                                <span>Plus</span>
+                                <img src="assets/images/plus_b13a8b.png" alt="logo">
+                            </a>
+                        </div>
+                        <div class="search">
+                            <input type="text" placeholder="Search for products, brands and more">
+                            <button class="btn"><i class="fas fa-search"></i></button>
+                        </div>
+
+                    </div>
+                    <div class="head-right">
+                        <div class="tex-rig row">
+                            <div class="text-rig1">
+                                <a href="#">Login & Signup</a>
+                            </div>
+                            <div class="text-rig1">
+                                <a href="cart.html" class="cartbtn"><i class="fas fa-shopping-cart"></i> cart</a>
+                                <span id="counter" class="count">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+        <div id="slider">
+            <div class="myslides">
+                <a href="#">
+                    <img src="assets/images/slider/slider1.jpg" alt="img" class="slide" style="width:100%">
+                </a>
+            </div>
+            <div class="myslides">
+                <a href="#">
+                  <img src="assets/images/slider/slider2.jpg" alt="img" class="slide" style="width:100%">
+                </a>
+            </div>
+            <div class="myslides">
+                <a href="#">
+                  <img src="assets/images/slider/slider3.jpg" alt="img" class="slide" style="width:100%">
+                </a>
+            </div>
+            <div class="myslides">
+                <a href="#">
+                    <img src="assets/images/slider/slider4.jpg" alt="img" class="slide" style="width:100%">
+                </a>
+            </div>
+            <div class="myslides">
+                <a href="#">
+                    <img src="assets/images/slider/slider5.jpg" alt="img" class="slide" style="width:100%">
+                </a>
+            </div>
+            <button class="s-btn-le" id="btn-clk0">&#10094;</button>
+            <button class="s-btn-ri" id="btn-clk1">&#10095;</button>
+        </div>
+        <div id="content">
+            <div class="contain">
+                <div class="sec-c-01">
+                    <div class="c-h">
+                        <h1>Mobile New Launches</h1>
+                    </div>
+                    <div class="products">
+                        <ul id="smartphones"></ul>
+                        <button class="p-btn0">&#10094;</button>
+                        <button class="p-btn1">&#10095;</button>
+                    </div>
+
+                </div>
+                <div class="sec-c-02">
+                    <div class="c-h">
+                        <h1>Best of Smart Wearables</h1>
+                    </div>
+                    <div class="products">
+                        <ul id="watches"></ul>
+                        <button class="p-btn0">&#10094;</button>
+                        <button class="p-btn1">&#10095;</button>
+                    </div>
+                </div>
+                <div class="sec-c-03">
+                    <div class="c-h">
+                        <h1>Personal & Health Care</h1>
+                    </div>
+                    <div class="products">
+                        <ul id="health"></ul>
+                        <button class="p-btn0">&#10094;</button>
+                        <button class="p-btn1">&#10095;</button>
+                    </div>
+                </div>
+                <div class="sec-c-04">
+                    <div class="c-h">
+                        <h1>Men's Footwear</h1>
+                    </div>
+                    <div class="products">
+                        <ul id="footwear"></ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script src="assets/javascript/jquery-3.3.1.min.js"></script>
+    <script>
+        $(window).scroll(function(){
+            var s = $(this).scrollTop();
+            // console.log(s);
+            if(s >= 360)
+            $(".backToTop").css({"display" : "initial"});
+            else
+            $(".backToTop").css({"display" : "none"});
+        });
+        $("a[href='#top']").click(function() {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            return false;
+        });
+    </script>
+    
+</body>
+</html>
