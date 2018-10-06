@@ -1,13 +1,7 @@
 window.addEventListener("load",initevent);
 var slideIndex = 1;
 function initevent(){
-    var container = document.getElementById("container");
-    var intro = document.getElementById("intro");
-    // console.log(container);
-    container.style.display = "none"; 
-    intro.style.display = "initial"; 
-    setTimeout(load,1900);
-    loadProducts();
+    initdesign();
 }
 function load(){
     intro.style.display = "none"; 
@@ -16,6 +10,7 @@ function load(){
     document.getElementById("btn-clk0").addEventListener("click",minus);
     document.getElementById("btn-clk1").addEventListener("click",plus);
     showAllProducts();
+    document.getElementById("search12").addEventListener("keyup",search);
 }
 // ------------------------------------SLIDER-----------------------------
 function minus(){
@@ -42,7 +37,16 @@ function showDivs(n) {
   if(slideIndex == x.length)
   x[0].style.transform = "translateX(-100%)";  
 }
-
+// -----------------------------SEARCH--------------------------------------------------------
+// var tosearch = "";
+// function show(sear){
+//     tosearch = sear.value;
+//     var serbtn = document.getElementById("searchbtn");
+//     serbtn.addEventListener("click",search);
+// }
+// function search(){
+//     console.log(tosearch);
+// }
 // -------------------------CONTENT---------------------------------------------
 function showAllProducts(){
     var rupee=document.getElementById("rupee").innerHTML;
@@ -134,16 +138,27 @@ function add(){
     var elem = event.srcElement.parentNode;
     console.log(elem);
     var product = elem.childNodes;
-    console.log(product);
-    var b =0;
+    var b = 5;
     var elemId = elem.title;
-    for(var i = 0; i < obj.itemList.length; i++){
-        if(elemId == obj.itemList[i].id)
-         b=1;
-        else
-        b=0;
+    // console.log(elemId);
+    if(obj.itemList.length == 0){
+        b = 0;
+    }
+    else{
+        for(var i = 0; i < obj.itemList.length; i++){
+            if(elemId == obj.itemList[i].id){
+                b=1;
+                break;
+                // console.log("executed");
+            }
+            else{
+            b=0;
+            // console.log("executed111");
+            }
+        }
     }
     if(b == 0){
+        console.log(product[5]);
         var h = product[5].innerHTML;
         h++;
         obj.addItem(elemId, product[1].innerHTML, product[2].innerHTML, product[0].src, h);
@@ -178,7 +193,7 @@ function notify(){
         setTimeout(function(){
             n.close();
             // console.log("Notify User...");
-        },2000);
+        },1000);
 
     });
 }
@@ -199,5 +214,69 @@ function loadProducts(){
         // printItems();
         // calculateTotal();
         cartCount();
+    }
+}
+// --------------------------------------Search----------------------------------------
+var toSearch = "";
+function search(){
+    serproduct = "";
+    var lu = document.getElementById("serprd");
+    lu.innerHTML = "";
+    toSearch = event.srcElement.value;
+    if(toSearch == ''){
+        // serproduct = "";
+        document.getElementById("disc").style.display = 'initial';
+        document.getElementById("searchproducts").style.display = 'none';
+    }
+    else{
+        document.getElementById("disc").style.display = 'none';
+        document.getElementById("searchproducts").style.display = 'initial';
+    }
+    document.getElementById("searchbtn").addEventListener("click",searchpage);
+}
+function searchpage()
+{
+    serproduct = "";
+    serproduct = products.filter(function(obj){
+        return obj.p_name.toLowerCase().includes(toSearch.toLowerCase());
+    });
+    showAllsearchedProducts();
+}
+function showAllsearchedProducts(){
+    var rupee=document.getElementById("rupee").innerHTML;
+    var ul = document.getElementById("serprd");
+    ul.innerHTML = "";
+        for(var i = 0; i < serproduct.length; i++){
+            var li = document.createElement("li");
+            li.className = 'product';
+            li.setAttribute('title', serproduct[i].p_id);
+            // li.className = 'list-group-item product';
+            var p_name = document.createElement("span");
+            p_name.className = 'name';
+            p_name.innerHTML = serproduct[i].p_name;
+            var p_price = document.createElement("span");
+            p_price.className = 'price';
+            var p_curr = document.createElement("span");
+            p_curr.className = 'currency';
+            p_curr.innerHTML = rupee;
+            p_price.innerHTML = serproduct[i].p_price;
+            var p_image = document.createElement("img");
+            p_image.className = 'productImage';
+            p_image.setAttribute('src', serproduct[i].p_image);
+            var p_quantity = document.createElement("span");
+            p_quantity.innerHTML = serproduct[i].p_quantity;
+            // console.log(p_quantity);
+            p_quantity.className = 'pquan';
+            var cart_button = document.createElement("button");
+            cart_button.innerHTML = "Add to Cart";
+            cart_button.className = 'cart-btn';
+            li.appendChild(p_image);
+            li.appendChild(p_name);
+            li.appendChild(p_price);
+            li.appendChild(p_curr);
+            li.appendChild(cart_button);
+            li.appendChild(p_quantity);
+            ul.appendChild(li);
+            cart_button.addEventListener("click", add);
     }
 }

@@ -32,6 +32,9 @@ ul{
     width: 1200px;
     margin: 0 auto;
 }
+#container{
+    display: none;
+}
 .backToTop{
     display: block;
     z-index: 10;
@@ -393,5 +396,70 @@ ul{
     transition-timing-function: ease-in-out;
 }
 #content .products ul li .pquan{
+    display: none;
+}
+/* ----------------------------------SEARCHPRODUCTS------------------------------ */
+#searchproducts .s-h{
+    background-color: #ffff;
+    font-size: 9.5px;
+    letter-spacing: 1px;
+    padding: 15px;
+}
+#searchproducts .s-p{
+    background-color: #ffff;
+    width: 99%;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+#searchproducts .s-p ul{
+    display: flex;
+    padding: 0px;
+    flex-wrap: wrap;
+    text-align: center;
+    /* justify-content: space-between; */
+    list-style: none;
+}
+#searchproducts .s-p ul li{
+    margin: 30px 60px;
+    width: 200px;
+    position: relative;
+    padding: 0px 3px;
+}
+#searchproducts .s-p ul li span{
+    padding: 10px 0px 0px 0px;
+    text-align: center;
+    /* width: 50px; */
+    height: 49px;
+    margin-left: 50px;
+    width: 100px;
+    overflow: hidden;
+    display: block;
+}
+#searchproducts .s-p ul li .name{
+    font-size: 16px;
+    font-weight: bold;
+    /* margin-left: 50px; */
+}
+#searchproducts .s-p ul li .price{
+    color: #388E3C;
+}
+#searchproducts .s-p ul li .currency{
+    position: absolute;
+    bottom: 10%;
+    left: -25%;
+    color: #388E3C; 
+}
+#searchproducts .s-p ul li img{
+    width: 100px;
+    height: 204px;
+    text-align: center;
+}
+#searchproducts .s-p ul li:hover img{
+    transform: scale(1.05);
+}
+#searchproducts .s-p ul li:hover .name{
+    color: #2874F0;
+}
+#searchproducts .s-p ul li .pquan{
     display: none;
 }

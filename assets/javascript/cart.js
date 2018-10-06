@@ -47,15 +47,34 @@ function printItems() {
         p_image.className = 'productImage';
         p_image.setAttribute('src', elem.image);
         var delete_button = document.createElement("button");
-        delete_button.innerHTML = "<i class='fas  fa-trash'/>";
+        delete_button.innerHTML = "<i class='fas  fa-trash'/>  Remove";
         delete_button.className = 'delbtn';
+        var plus_button = document.createElement("button");
+        plus_button.innerHTML = "<i class='fas fa-plus'></i>";
+        plus_button.className = 'plusbtn';
+        var quan_button = document.createElement("span");
+        quan_button.innerHTML = elem.quantity;
+        quan_button.className = 'quanbtn';
+        var minus_button = document.createElement("button");
+        minus_button.innerHTML = "<i class='fas fa-minus'></i>";
+        minus_button.className = 'minusbtn';
         li.appendChild(p_image);
         li.appendChild(p_name);
         li.appendChild(p_price);
         li.appendChild(p_curr);
+        li.appendChild(minus_button);
+        li.appendChild(quan_button);
         li.appendChild(delete_button);
+        li.appendChild(plus_button);
         ul.appendChild(li);
         delete_button.addEventListener("click", deleteProduct);
+        plus_button.addEventListener("click", plusProduct);
+        for(var i = 0; i < obj.itemList.length; i++){
+            if(obj.itemList[i].quantity > 1)
+            minus_button.addEventListener("click", minusProduct);
+            // else
+            // window.alert("minimum quantity must be 1...");
+        }
     })
 }
 function deleteProduct(){
@@ -66,7 +85,7 @@ function deleteProduct(){
     obj.deleteItem(id);
     printItems();
     saveChanges();
-    calculateTotal()
+    calculateTotal();
     cartCount();
 }
 function calculateTotal(){
@@ -75,4 +94,47 @@ function calculateTotal(){
         price += parseInt(obj.itemList[i].price);
     }
     document.getElementById("total").innerHTML = price;
+}
+function plusProduct(){
+    var ele = event.srcElement;
+    ele = ele.parentElement;
+    var id = ele.title;
+    var com = 0;
+    for(var i = 0; i < obj.itemList.length; i++){
+        if( id == obj.itemList[i].id)
+        com = i;
+    }
+    console.log(com);
+    var n = obj.itemList[com].quantity;
+    var pri = obj.itemList[com].price;
+    pri = pri/n;
+    var pr = obj.itemList[com].price;
+    pr = pr+pri;
+    obj.itemList[com].price = pr;
+    n++; 
+    obj.itemList[com].quantity = n;
+    printItems();
+    saveChanges();
+    calculateTotal();
+}
+function minusProduct(){
+    var ele = event.srcElement;
+    ele = ele.parentElement;
+    var id = ele.title;
+    var com = 0;
+    for(var i = 0; i < obj.itemList.length; i++){
+        if( id == obj.itemList[i].id)
+        com = i;
+    }
+    var n = obj.itemList[com].quantity;
+    var pri = obj.itemList[com].price;
+    pri = pri/n;
+    var pr = obj.itemList[com].price;
+    pr = pr-pri;
+    obj.itemList[com].price = pr;
+    n--; 
+    obj.itemList[com].quantity = n;
+    printItems();
+    saveChanges();
+    calculateTotal();
 }

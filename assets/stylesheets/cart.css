@@ -1,20 +1,30 @@
-.c-h{
+.c-j{
     position: relative;
+    width: 60%;
+    padding: 10px;
+    background-color: #fff;
+}
+.p-total{
+    background-color: #fff;
 }
 .contain{
-    width: 98%;
+    width: 90%;
     margin: 0 auto;
     overflow: hidden;
-}
-#content .cartproducts ul{
-    margin-top: 10px;
 }
 .cartcnt{
     display: inline-block;
     font-size: 22px;
     position: absolute;
-    top: 18px;
-    left: 90px;
+    top: 15%;
+    background-color: #2874F0;
+    color: #fff;
+    border-radius: 50%; 
+    width: 40px;
+    padding-top: 6px;
+    height: 40px;
+    text-align: center;
+    left: 30%;
 }
 #cartproduct li{
     margin-top: 15px;
@@ -45,30 +55,68 @@
     color: #388E3C; 
     left: 23%;
 }
+#cartproduct li .quanbtn{
+    bottom: 13%;
+    width: 50px;
+    border: 1px solid #000;
+    color: #388E3C; 
+    text-align: center;
+    padding: 5px 0px;
+    left: 27.5%;
+}
 #cartproduct li .delbtn{
     display: inline-block;
     position: absolute;
     height: 30px;
-    width: 50px;
+    width: 100px;
     bottom: 10%;
+    right: 30%;
+    border: 0 none;
+    outline: 0 none;
+    color: #fff;
+    border-radius: 5%;
+    cursor: pointer;
+    background-color:#2874F0; 
+}
+#cartproduct li .plusbtn{
+    display: inline-block;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    bottom: 10%;
+    left: 35%;
+    border: 0 none;
+    outline: 0 none;
+    color: #fff;
+    border-radius: 50%;
+    background-color:rgb(24, 160, 17); 
+}
+#cartproduct li .minusbtn{
+    display: inline-block;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    bottom: 10%;
+    cursor: pointer;
     left: 25%;
     border: 0 none;
     outline: 0 none;
     color: #fff;
-    border-radius: 10%;
-    background-color:#2874F0; 
+    border-radius: 50%;
+    background-color:rgb(253, 33, 25); 
 }
 #cartproduct li img{
     width: 7%;
 }
-#content .sec-c-01{
-    background-color: #fff;
+#content .sec-c-09{
     display: flex;
     justify-content: space-between
 }
 #content .p-total{
     display: flex;
-    margin: 10px 50px 0px 0px;
+    margin: 0px 50px 0px 0px;
+    padding: 10px;
 }
 #content .p-total span{
     padding-top: 10px;
