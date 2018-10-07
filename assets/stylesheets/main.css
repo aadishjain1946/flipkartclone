@@ -133,6 +133,9 @@ ul{
 #header{
     background-color: #2874F0;
 }
+.logobox1{
+    display: none;
+}
 #header .row{
     justify-content: space-between;
 }
@@ -151,6 +154,9 @@ ul{
 #header .head-left .logo .sublogo img{
     width: 9px;
 }
+.searchbox1{
+    display: none;
+}
 #header .head-left .logo .sublogo{
     font-size: 11px;
     color: #f0f0f0;
@@ -164,13 +170,14 @@ ul{
     content: "";
     position: absolute;
     bottom: 0px;
-    left: 40%;
+    left: 43%;
     border: 1px solid #f0f0f0;
-    transform: scalex(30);
+    transition-duration: 0.5s;
     opacity: 0;
 }
 #header .head-left .logo:hover .sublogo:before{
     opacity: 1;
+    transform: scalex(30);
 }
 #header .head-left .logo .sublogo span{
     color: #F9E107;
@@ -179,7 +186,7 @@ ul{
     width: 70%;
     margin: 9px 0px 0px 0px;
 }
-#header .head-left .search input[type="text"]{
+.search input[type="text"]{
     box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.43);
     width: 90.5%;
     border-radius: 2px 0px 0px 2px;  
@@ -187,7 +194,7 @@ ul{
     border: 0 none;
     outline: 0 none;  
 }
-#header .head-left .search input[type="text"]::placeholder{
+.search input[type="text"]::placeholder{
     font-size: 13px;
     margin: 0px;
     padding: 0px 0px 0px 10px;
@@ -195,7 +202,7 @@ ul{
     font-family: 'Roboto',Arial,sans-serif;
     letter-spacing: 0px;
 }
-#header .head-left .search .btn{
+.search .btn{
     box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.43);
     border-radius: 0px;
     display: inline-block;
@@ -214,12 +221,15 @@ ul{
 #header .head-right .tex-rig{
     margin: 15px;
     font-weight: 500;
+    display: flex;
+    justify-content: center;
     font-size: 16px;
     font-family: 'Roboto',Arial,sans-serif;
     letter-spacing: 0.1px;
 }
 #header .head-right .tex-rig .text-rig1{
     position: relative;
+    margin-right: 20px;
 }
 #header .head-right .tex-rig .text-rig1 .cartbtn{
     background-color: transparent;
@@ -462,4 +472,136 @@ ul{
 }
 #searchproducts .s-p ul li .pquan{
     display: none;
+}
+/* -----------------------------------------MEDIA QUERIES----------------------------------------- */
+@media(min-width:1200px){
+    body{
+        overflow-x: hidden;
+    }
+}
+@media(max-width:1200px){
+    .container{
+        width: 100%;
+        margin: 0 auto;
+    }
+    #header .head-left{
+        width: 56%;
+    }
+    #header .head-left .logo{
+        margin: 9px 10px 1px 0px;
+        width: 17%;
+    }
+    #header .head-left .search input[type="text"]{
+        width: 80%;
+    }
+    #header .head-right{
+        width: 25%;
+    }
+}
+@media(max-width:992px){
+    .container{
+        width: 100%;
+        margin: 0 auto;
+    }
+    #header .head-left{
+        width: 65%;
+    }
+    #header .head-left .logo{
+        width: 18%;
+    }
+    #header .head-left .search input[type="text"]{
+        width: 75%;
+    }
+    #header .head-right{
+        width: 30%;
+    }
+}@media(max-width:768px){
+    .container{
+        width: 100%;
+        margin: 0 auto;
+    }
+    #header .logobox{
+        display: none;
+    }
+    .logobox1{
+        display: initial;
+    }
+    .logobox1 a{
+        display: inline-block;
+        width: 80px;
+    }
+    .searchbox1{
+        display: initial;
+    }
+    #header .searchbox{
+        display: none;
+    }
+    #header .head-left{
+        width: 75%;
+    }
+     .logo img{
+        width: 100%;
+        padding-top: 10%;
+    }
+    .search .btn{
+    box-shadow: 0;
+    width: 6%;
+    }
+    .search input[type="text"]{
+        box-shadow: 0;
+        width: 93%;
+    }
+    #header .head-right{
+        width: 80%;
+    }
+    #header .head-right .tex-rig{
+        margin-right: 25px;
+    }
+
+    #slider{
+        height: 200px;
+    }
+    #slider .myslides img{
+        height: 100%;
+    }   
+    #slider .s-btn-ri, .s-btn-le{
+        width: 30px;
+    }
+}@media(max-width:480px){
+    .container{
+        width: 100%;
+        margin: 0 auto;
+    }
+    #header .head-left{
+        width: 56%;
+    }
+    #header .head-left .logo{
+        margin: 9px 10px 1px 0px;
+        width: 17%;
+    }
+    #header .head-left .search input[type="text"]{
+        width: 80%;
+    }
+    #header .head-right{
+        width: 25%;
+    }
+}
+@media(max-width:336px){
+    .container{
+        width: 100%;
+        margin: 0 auto;
+    }
+    #header .head-left{
+        width: 56%;
+    }
+    #header .head-left .logo{
+        margin: 9px 10px 1px 0px;
+        width: 17%;
+    }
+    #header .head-left .search input[type="text"]{
+        width: 80%;
+    }
+    #header .head-right{
+        width: 25%;
+    }
 }

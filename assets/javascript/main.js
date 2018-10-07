@@ -11,6 +11,7 @@ function load(){
     document.getElementById("btn-clk1").addEventListener("click",plus);
     showAllProducts();
     document.getElementById("search12").addEventListener("keyup",search);
+    document.getElementById("search13").addEventListener("keyup",search);
 }
 // ------------------------------------SLIDER-----------------------------
 function minus(){
@@ -233,6 +234,7 @@ function search(){
         document.getElementById("searchproducts").style.display = 'initial';
     }
     document.getElementById("searchbtn").addEventListener("click",searchpage);
+    document.getElementById("searchbtn1").addEventListener("click",searchpage);
 }
 function searchpage()
 {
