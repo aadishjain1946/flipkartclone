@@ -12,6 +12,7 @@ function load(){
     showAllProducts();
     document.getElementById("search12").addEventListener("keyup",search);
     document.getElementById("search13").addEventListener("keyup",search);
+    showDivs(slideIndex);
 }
 // ------------------------------------SLIDER-----------------------------
 function minus(){
@@ -23,20 +24,15 @@ function plus(){
 function plusDivs(n) {
   showDivs(slideIndex += n);
 }
-
 function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("myslides");
-  if (n > x.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.transform = "translateX(100%)";  
-  }
-  x[slideIndex-1].style.transform = "translateX(0%)";  
-  if ( n != 1)
-  x[slideIndex-2].style.transform = "translateX(-100%)";  
-  if(slideIndex == x.length)
-  x[0].style.transform = "translateX(-100%)";  
+    var i;
+    var x = document.getElementsByClassName("myslides");
+    if (n > x.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    x[slideIndex-1].style.display = "block";    
 }
 // -----------------------------SEARCH--------------------------------------------------------
 // var tosearch = "";

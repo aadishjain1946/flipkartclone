@@ -262,7 +262,7 @@ ul{
 #slider .myslides{
     position: absolute;
     top: 0px;
-    transform: translateX(100%);
+    display: none;
     transition-duration: 0.5s;
     height: 100%;
 }
@@ -409,6 +409,9 @@ ul{
     display: none;
 }
 /* ----------------------------------SEARCHPRODUCTS------------------------------ */
+#searchproducts{
+    display: none;
+}
 #searchproducts .s-h{
     background-color: #ffff;
     font-size: 9.5px;
@@ -426,11 +429,11 @@ ul{
     padding: 0px;
     flex-wrap: wrap;
     text-align: center;
-    /* justify-content: space-between; */
+    justify-content: left;
     list-style: none;
 }
 #searchproducts .s-p ul li{
-    margin: 30px 60px;
+    margin: 30px 30px;
     width: 200px;
     position: relative;
     padding: 0px 3px;
@@ -482,6 +485,7 @@ ul{
 @media(max-width:1200px){
     .container{
         width: 100%;
+        overflow-x: hidden;
         margin: 0 auto;
     }
     #header .head-left{
@@ -514,6 +518,13 @@ ul{
     }
     #header .head-right{
         width: 30%;
+    }
+    #searchproducts .s-p ul li{
+        margin: 30px 10px;
+        width: 150px;
+    }
+    #searchproducts .s-p ul li span{
+        margin-left: 25px;
     }
 }@media(max-width:768px){
     .container{
@@ -567,41 +578,74 @@ ul{
     #slider .s-btn-ri, .s-btn-le{
         width: 30px;
     }
-}@media(max-width:480px){
+}
+@media(max-width:480px){
     .container{
         width: 100%;
         margin: 0 auto;
     }
+    #header .logobox{
+        display: none;
+    }
+    .logobox1{
+        display: initial;
+    }
+    .logobox1 a{
+        display: inline-block;
+        width: 80px;
+    }
+    .searchbox1{
+        display: initial;
+    }
+    #header .searchbox{
+        display: none;
+    }
     #header .head-left{
-        width: 56%;
+        width: 40%;
     }
-    #header .head-left .logo{
-        margin: 9px 10px 1px 0px;
-        width: 17%;
+     .logo img{
+        width: 100%;
+        padding-top: 10%;
     }
-    #header .head-left .search input[type="text"]{
-        width: 80%;
+    .search .btn{
+    box-shadow: 0;
+    width: 9%;
+    }
+    .search input[type="text"]{
+        box-shadow: 0;
+        width: 89%;
     }
     #header .head-right{
+        width: 90%;
+        justify-content: right;
+    }
+    #header .head-right .tex-rig{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    #header .head-right .tex-rig .text-rig1{
+        margin-right: 10px;
+        width: 50%;
+    }
+    #header .head-right .tex-rig .text-rig2{
+        margin-right: 10px;
         width: 25%;
+    }
+    #searchproducts .s-p ul li{
+        margin: 30px 30px;
+        width: 100px;
+    }
+    #searchproducts .s-p ul li span{
+        margin-left: 5px;
     }
 }
 @media(max-width:336px){
-    .container{
-        width: 100%;
-        margin: 0 auto;
+    #searchproducts .s-p ul li{
+        margin: 30px 10px;
+        margin-right: 30px;
+        width: 100px;
     }
-    #header .head-left{
-        width: 56%;
-    }
-    #header .head-left .logo{
-        margin: 9px 10px 1px 0px;
-        width: 17%;
-    }
-    #header .head-left .search input[type="text"]{
-        width: 80%;
-    }
-    #header .head-right{
-        width: 25%;
+    #searchproducts .s-p ul li span{
+        margin-left: 5px;
     }
 }
