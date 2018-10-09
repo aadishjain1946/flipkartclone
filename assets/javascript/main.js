@@ -215,9 +215,10 @@ function loadProducts(){
 }
 // --------------------------------------Search----------------------------------------
 var toSearch = "";
+var lu;
 function search(){
     serproduct = "";
-    var lu = document.getElementById("serprd");
+     lu = document.getElementById("serprd");
     lu.innerHTML = "";
     toSearch = event.srcElement.value;
     if(toSearch == ''){
@@ -229,18 +230,89 @@ function search(){
         document.getElementById("disc").style.display = 'none';
         document.getElementById("searchproducts").style.display = 'initial';
     }
-    document.getElementById("searchbtn").addEventListener("click",searchpage);
-    document.getElementById("searchbtn1").addEventListener("click",searchpage);
+    var se = document.getElementById("search12");
+    var se1 = document.getElementById("search13");
+    se.onkeyup = function(e){     
+        var keycode = (e === null) ? window.event.keyCode : e.which;
+        if(keycode === 13) {
+            searchpage();
+        } 
+        else{
+            document.getElementById("searchbtn").addEventListener("click",searchpage);
+            document.getElementById("searchbtn1").addEventListener("click",searchpage);
+        }
+    }
+    se1.onkeyup = function(e){     
+        var keycode = (e === null) ? window.event.keyCode : e.which;
+        if(keycode === 13) {
+            searchpage();
+        } 
+        else{
+            document.getElementById("searchbtn").addEventListener("click",searchpage);
+            document.getElementById("searchbtn1").addEventListener("click",searchpage);
+        }
+    }
 }
 function searchpage()
 {
     serproduct = "";
-    serproduct = products.filter(function(obj){
-        return obj.p_name.toLowerCase().includes(toSearch.toLowerCase());
-    });
+    if(toSearch == "smartphones" || toSearch == "smartphone" || toSearch == "phones" || toSearch == "mobile" || toSearch == "phone"){
+        var n = 1;
+        serproduct = products.filter(function(obj){
+            var idcal = obj.p_id/100;
+            console.log(idcal);
+            cal = parseInt(idcal);
+            if(n == cal){
+            return obj.p_name;
+            }
+        });
+    }
+    else if(toSearch == "smartwatchs" || toSearch == "smartwearables" || toSearch == "watches" || toSearch == "watch" || toSearch == "smartdevice"){
+        var n = 2;
+        serproduct = products.filter(function(obj){
+            var idcal = obj.p_id/100;
+            console.log(idcal);
+            cal = parseInt(idcal);
+            if(n == cal){
+            return obj.p_name;
+            }
+        });
+    }
+    else if(toSearch == "grooming" || toSearch == "health" || toSearch == "trimmer" || toSearch == "hairdryier" || toSearch == "hair"){
+        var n = 3;
+        serproduct = products.filter(function(obj){
+            var idcal = obj.p_id/100;
+            console.log(idcal);
+            cal = parseInt(idcal);
+            if(n == cal){
+            return obj.p_name;
+            }
+        });
+    }
+    else if(toSearch == "footwear" || toSearch == "shoes" || toSearch == "shoe" || toSearch == "men" || toSearch == "bottomwear"){
+        var n = 4;
+        serproduct = products.filter(function(obj){
+            var idcal = obj.p_id/100;
+            console.log(idcal);
+            cal = parseInt(idcal);
+            if(n == cal){
+            return obj.p_name;
+            }
+        });
+    }
+    else{
+        serproduct = products.filter(function(obj){
+            return obj.p_name.toLowerCase().includes(toSearch.toLowerCase());
+        });
+    }    
     showAllsearchedProducts();
 }
 function showAllsearchedProducts(){
+    var norel = document.getElementById("noresult");
+    norel.style.display = "none";
+    if(serproduct.length == 0){
+        norel.style.display = "initial";
+    }
     var rupee=document.getElementById("rupee").innerHTML;
     var ul = document.getElementById("serprd");
     ul.innerHTML = "";
