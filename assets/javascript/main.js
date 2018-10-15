@@ -1,9 +1,16 @@
 window.addEventListener("load",initevent);
 var slideIndex = 1;
 function initevent(){
-    initdesign();
+    var widt = screen.width;
+    if(widt >= 768){
+        initdesign();
+    }
+    else{
+        load();
+    }
 }
 function load(){
+    var intro = document.getElementById("intro");
     intro.style.display = "none"; 
     container.style.display = "initial"; 
     showDivs(slideIndex);
