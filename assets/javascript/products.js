@@ -187,7 +187,7 @@ var products = [
     },
     {
         "p_id" : 303,
-        "p_name" : "Dr Physio USA Full Body Massager Massage Machine Massagers Back Legs Neck Shoulder Massager",
+        "p_name" : "Dr Physio USA Full Body Massager Massage Machine Massagers",
         "p_price" : 1044,
         "p_image" : "https://rukminim1.flixcart.com/image/832/832/jl41nrk0/massager/7/j/x/dr-physio-massage-machine-massagers-back-legs-neck-shoulder-usa-original-imaf8bhcjpwh6wbh.jpeg?q=70",
         "p_quantity" : 0

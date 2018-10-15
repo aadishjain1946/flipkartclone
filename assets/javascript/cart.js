@@ -14,6 +14,7 @@ function loadProducts(){
 function cartCount(){
     count = obj.cartCounter();
     document.getElementById("counter1").innerHTML = count;
+    document.getElementById("counter").innerHTML = count;
 }
 function saveChanges(){
     if(window.localStorage){
@@ -58,14 +59,38 @@ function printItems() {
         var minus_button = document.createElement("button");
         minus_button.innerHTML = "<i class='fas fa-minus'></i>";
         minus_button.className = 'minusbtn';
-        li.appendChild(p_image);
-        li.appendChild(p_name);
-        li.appendChild(p_price);
-        li.appendChild(p_curr);
-        li.appendChild(minus_button);
-        li.appendChild(quan_button);
-        li.appendChild(delete_button);
-        li.appendChild(plus_button);
+        var div6 = document.createElement("div");
+        var div5 = document.createElement("div");
+        var div4 = document.createElement("div");
+        var div3 = document.createElement("div");
+        var div2 = document.createElement("div");
+        var div1 = document.createElement("div");
+        div1.className = 'div-img';
+        div2.className = 'div-text';
+        div2.setAttribute('title', elem.id);
+        div3.className = 'div-name';
+        div4.className = 'div-price';
+        div5.className = 'div-pm';
+        div6.className = 'div-rem';
+        div6.setAttribute('title', elem.id);
+        div5.setAttribute('title', elem.id);
+        div4.setAttribute('title', elem.id);
+        div1.setAttribute('title', elem.id);
+        div3.setAttribute('title', elem.id);
+        div1.appendChild(p_image);
+        div3.appendChild(p_name);
+        div4.appendChild(p_curr);
+        div4.appendChild(p_price);
+        div5.appendChild(minus_button);
+        div5.appendChild(quan_button);
+        div5.appendChild(plus_button);
+        div6.appendChild(delete_button);
+        div2.appendChild(div3);
+        div2.appendChild(div4);
+        div2.appendChild(div5);
+        div2.appendChild(div6);
+        li.appendChild(div1);
+        li.appendChild(div2);
         ul.appendChild(li);
         delete_button.addEventListener("click", deleteProduct);
         plus_button.addEventListener("click", plusProduct);
@@ -80,6 +105,7 @@ function printItems() {
 function deleteProduct(){
     var elem = event.srcElement;
     elem = elem.parentElement;
+    elem = elem.parentNode;
     console.log("Deleting", elem);
     var id = elem.title;
     obj.deleteItem(id);
@@ -97,6 +123,7 @@ function calculateTotal(){
 }
 function plusProduct(){
     var ele = event.srcElement;
+    ele = ele.parentElement;
     ele = ele.parentElement;
     var id = ele.title;
     var com = 0;
@@ -120,7 +147,9 @@ function plusProduct(){
 function minusProduct(){
     var ele = event.srcElement;
     ele = ele.parentElement;
+    ele = ele.parentElement;
     var id = ele.title;
+    console.log(ele);
     var com = 0;
     for(var i = 0; i < obj.itemList.length; i++){
         if( id == obj.itemList[i].id)

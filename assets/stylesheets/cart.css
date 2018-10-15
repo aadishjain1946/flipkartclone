@@ -1,3 +1,12 @@
+.contain{
+    width: 98%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#content .sec-c-09{
+    display: flex;
+    margin-top: 5px;
+}
 .c-j{
     position: relative;
     width: 75%;
@@ -7,10 +16,24 @@
 .p-total{
     background-color: #fff;
 }
-.contain{
-    width: 98%;
-    margin: 0 auto;
-    overflow: hidden;
+#content .p-total{
+    display: flex;
+    width:  25%; 
+    padding: 10px;
+}
+#content .p-total span{
+    padding-top: 3.5px;
+    font-size: 25px;
+    color: #388E3C;
+}
+#content .p-total .rup{
+    padding-left: 13px;
+}
+#header{
+    height: 50px;
+}
+.search{
+    display: none;
 }
 .cartcnt{
     display: inline-block;
@@ -30,49 +53,79 @@
     margin-top: 5px;
 }
 #cartproduct li{
-    background-color: #ffff;
+    background-color: #fff;
     display: flex;
-    padding: 30px;
     position: relative;
-    height: 200px;
+    margin-bottom: 5px;
+    width: 100%;
 }
-#cartproduct li span{
-    display: block;
-    margin-left: 25px;
-    position: absolute;
+#cartproduct li .div-img{
+    width: 150px;
+    padding: 20px;
 }
-#cartproduct li .name{
-    top: 15%;
+#cartproduct li .div-img img{
+    width: 100%;
+}
+#cartproduct li .div-text{
+    margin-left: 100px;
+    margin-top: 25px;
+}
+#cartproduct li .div-text .div-name{
     font-weight: bold;
-    font-size: 20px;
-    left: 23%;
+    font-size: 23px;
+    margin-bottom: 45px;
+    padding-left: 7px;
 }
-#cartproduct li .pprice{
-    top: 45%;
+#cartproduct li .div-text .div-price{
     color: #388E3C; 
-    left: 24.5%;
+    font-size: 20px;    
+    padding-left: 7px;
+    margin-bottom: 65px;
 }
-#cartproduct li .curr{
-    top: 45%;
-    color: #388E3C; 
-    left: 23%;
+#cartproduct li .div-text .div-pm{
+    margin-bottom: 45px;
 }
-#cartproduct li .quanbtn{
-    bottom: 13%;
+#cartproduct li .div-text .div-pm .quanbtn{
+    display: inline-block;
+    margin: 0px 15px;
     width: 50px;
     border: 1px solid #000;
     color: #388E3C; 
     text-align: center;
     padding: 5px 0px;
-    left: 27.5%;
 }
-#cartproduct li .delbtn{
+#cartproduct li .div-text .div-pm .plusbtn{
     display: inline-block;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    border: 0 none;
+    outline: 0 none;
+    color: #fff;
+    border-radius: 50%;
+    background-color:rgb(24, 160, 17); 
+}
+#cartproduct li .div-text .div-pm .minusbtn{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    border: 0 none;
+    outline: 0 none;
+    color: #fff;
+    border-radius: 50%;
+    background-color:rgb(253, 33, 25); 
+}
+#cartproduct li .div-text .div-rem{
+    padding-left: 7px;
     position: absolute;
+    top: 70%;
+    right: 40%;
+}
+#cartproduct li .div-text .div-rem .delbtn{
+    display: inline-block;
     height: 30px;
     width: 100px;
-    bottom: 10%;
-    right: 30%;
     border: 0 none;
     outline: 0 none;
     color: #fff;
@@ -80,95 +133,10 @@
     cursor: pointer;
     background-color:#2874F0; 
 }
-#cartproduct li .plusbtn{
-    display: inline-block;
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    cursor: pointer;
-    bottom: 10%;
-    left: 35%;
-    border: 0 none;
-    outline: 0 none;
-    color: #fff;
-    border-radius: 50%;
-    background-color:rgb(24, 160, 17); 
-}
-#cartproduct li .minusbtn{
-    display: inline-block;
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    bottom: 10%;
-    cursor: pointer;
-    left: 25%;
-    border: 0 none;
-    outline: 0 none;
-    color: #fff;
-    border-radius: 50%;
-    background-color:rgb(253, 33, 25); 
-}
-#cartproduct li img{
-    width: 7%;
-}
-#content .sec-c-09{
-    display: flex;
-    margin-top: 5px;
-}
-#content .p-total{
-    display: flex;
-    width:  25%; 
-    padding: 10px;
-}
-#content .p-total span{
-    padding-top: 8px;
-    font-size: 20px;
-    color: #388E3C;
-}
-#content .p-total .rup{
-    padding-left: 13px;
-}
-#header{
-    height: 50px;
-}
-.search{
-    display: none;
-}
 /* -------------------------------MEDIA QUERIES--------------------------------------- */
 @media(max-width:1200px){
     .cartcnt{
         left: 25%;
-    }
-    #cartproduct li{
-        height: 250px;
-    }
-    #cartproduct li .pprice{
-        top: 35%;
-        left: 24.5%;
-    }
-    #cartproduct li .curr{
-        top: 35%;
-    }
-    #cartproduct li img{
-        width: 10%;
-    }
-    #cartproduct li .quanbtn{
-        top: 51%;
-        height: 32px;
-        left: 26.5%;
-        z-index: 5;
-    }
-    #cartproduct li .delbtn{
-        top: 80%;
-        left: 25.5%;
-    }
-    #cartproduct li .plusbtn{
-        top: 50%;
-        left: 35%;
-    }
-    #cartproduct li .minusbtn{
-        top: 50%;
-        left: 24.5%;
     }
 }
 @media(max-width:992px){
@@ -187,25 +155,6 @@
         width:  30%; 
         padding: 10px;
     }
-    #cartproduct li img{
-        width: 13%;
-    }
-    #cartproduct li .quanbtn{
-        bottom: 13%;
-        left: 28%;
-    }
-    #cartproduct li .delbtn{
-        bottom: 10%;
-        left: 26%;
-    }
-    #cartproduct li .plusbtn{
-        bottom: 10%;
-        left: 39%;
-    }
-    #cartproduct li .minusbtn{
-        bottom: 10%;
-        left: 25%;
-    }
 }
 @media(max-width:768px){
     .cartcnt{
@@ -223,36 +172,6 @@
         width:  50%; 
         padding: 10px;
     }
-    #cartproduct li img{
-        width: 23%;
-    }
-    #cartproduct li .quanbtn{
-        bottom: 13%;
-        left: 37.5%;
-    }
-    #cartproduct li .delbtn{
-        bottom: 10%;
-        left: 33%;
-    }
-    #cartproduct li .plusbtn{
-        bottom: 10%;
-        left: 56%;
-    }
-    #cartproduct li .minusbtn{
-        bottom: 10%;
-        left: 33%;
-    }
-    #cartproduct li .pprice{
-        top: 35%;
-        left: 32%;
-    }
-    #cartproduct li .curr{
-        top: 35%;
-        left: 29%;
-    }
-    #cartproduct li .name{
-        left: 29%;
-    }
 }
 @media(max-width:448px){
     .cartcnt{
@@ -262,9 +181,7 @@
         width: 30px;
         height: 30px;
         }
-        #content .p-total 
-        
-        span{
+        #content .p-total span{
             padding-top: 0px;
             font-size: 20px;
         }
@@ -285,39 +202,6 @@
         #content .p-total h1{
             font-size: 20px;
         }
-    #cartproduct li{
-        height: 200px;
-    }
-    #cartproduct li img{
-        width: 23%;
-    }
-    #cartproduct li .quanbtn{
-        bottom: 13%;
-        left: 43.5%;
-    } 
-    #cartproduct li .delbtn{
-        bottom: 10%;
-        left: 36%;
-    }
-    #cartproduct li .plusbtn{
-        bottom: 10%;
-        left: 69%;
-    }
-    #cartproduct li .minusbtn{
-        bottom: 10%;
-        left: 36%;
-    }
-    #cartproduct li .pprice{
-        top: 35%;
-        left: 34%;
-    }
-    #cartproduct li .curr{
-        top: 35%;
-        left: 29%;
-    }
-    #cartproduct li .name{
-        left: 29%;
-    }
 
 }
 @media(max-width:336px){
@@ -328,9 +212,7 @@
     width: 30px;
     height: 30px;
     }
-    #content .p-total 
-    
-    span{
+    #content .p-total span{
         padding-top: 0px;
         font-size: 20px;
     }
