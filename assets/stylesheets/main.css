@@ -564,6 +564,7 @@ ul{
     .logobox1 a{
         display: inline-block;
         width: 80px;
+        padding-left: 10px;
     }
     .searchbox1{
         display: initial;

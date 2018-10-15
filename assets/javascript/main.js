@@ -13,8 +13,30 @@ function load(){
     document.getElementById("search12").addEventListener("keyup",search);
     document.getElementById("search13").addEventListener("keyup",search);
     showDivs(slideIndex);
+    slidimg();
 }
 // ------------------------------------SLIDER-----------------------------
+function slidimg(){
+    var wdt = screen.width;
+    var imgid = document.getElementsByClassName("slideimg");
+    // if(wdt >= 1100){
+    //     imgid.innerHTML = '<img src="assets/images/slider/slider.jpg" alt="img" class="slide" style="width:100%">';
+    // }
+    if(wdt <= 768){
+        for(var i = 0; i < imgid.length; i++){
+            if(i == 0)
+            imgid[i].innerHTML = '<img src="assets/images/slider/slidersmall/slider1.jpg" alt="img" class="slide" style="width:100%">';
+            if(i == 1)
+            imgid[i].innerHTML = '<img src="assets/images/slider/slidersmall/slider2.jpg" alt="img" class="slide" style="width:100%">';
+            if(i == 2)
+            imgid[i].innerHTML = '<img src="assets/images/slider/slidersmall/slider3.jpg" alt="img" class="slide" style="width:100%">';
+            if(i == 3)
+            imgid[i].innerHTML = '<img src="assets/images/slider/slidersmall/slider5.jpg" alt="img" class="slide" style="width:100%">';
+            if(i == 4)
+            imgid[i].innerHTML = '<img src="assets/images/slider/slidersmall/slider6.jpeg" alt="img" class="slide" style="width:100%">';
+        }
+    }
+}
 function minus(){
     plusDivs(-1);
 }
