@@ -75,6 +75,18 @@ function showDivs(n) {
 // }
 // -------------------------CONTENT---------------------------------------------
 function showAllProducts(){
+    var wdt = screen.width;
+    var n;
+    if(wdt >= 1250 || wdt <= 1200 && wdt >= 1072)
+        n = 6;
+    if(wdt <= 1070 && wdt >= 822)
+        n = 5;
+    if(wdt <= 816 && wdt >= 618)
+        n = 4;
+    if(wdt <= 616 && wdt >= 424)
+        n = 3;
+    if(wdt <= 420)
+        n = 2;
     var rupee=document.getElementById("rupee").innerHTML;
         var ul1 = document.getElementById("smartphones");
         var ul2 = document.getElementById("watches");
@@ -84,6 +96,15 @@ function showAllProducts(){
         ul2.innerHTML = "";
         ul3.innerHTML = "";
         ul4.innerHTML = "";
+        var p_div1 = document.createElement("div");
+        var p_div2 = document.createElement("div");
+        var p_div3 = document.createElement("div");
+        p_div1.id = "toggle1";
+        p_div2.id = "toggle2";
+        p_div3.id = "toggle3";
+        p_div1.style.display = "none";
+        p_div2.style.display = "none";
+        p_div3.style.display = "none";
         for(var i = 0; i < products.length; i++){
             var li = document.createElement("li");
             li.className = 'product';
@@ -116,50 +137,62 @@ function showAllProducts(){
             li.appendChild(p_quantity);
             var idcal = products[i].p_id/100;
             cal = parseInt(idcal);
-            if( cal == 1)
-            ul1.appendChild(li);
-            if( cal == 2)
-            ul2.appendChild(li);
-            if( cal == 3)
-            ul3.appendChild(li);
+            var idal = products[i].p_id%100;
+            al = parseInt(idal);
+            if( cal == 1){
+                if(n >= al)
+                ul1.appendChild(li);
+                else
+                p_div1.appendChild(li);
+            }
+            if( cal == 2){
+                if(n >= al)
+                ul2.appendChild(li);
+                else
+                p_div2.appendChild(li);
+            }
+            if( cal == 3){
+                if(n >= al)
+                ul3.appendChild(li);
+                else
+                p_div3.appendChild(li);
+            }
             if( cal == 4)
             ul4.appendChild(li);
             cart_button.addEventListener("click", add);
         }
-    pbtn();
+        ul1.appendChild(p_div1);
+        ul2.appendChild(p_div2);
+        ul3.appendChild(p_div3);
+    // pbtn();
 }
-function pbtn(){
-    var pbtn2 = document.getElementsByClassName("p-btn1");
-    var pbtn1 = document.getElementsByClassName("p-btn0");
-    for( var i = 0; i < pbtn2.length; i++){
-        pbtn2[i].addEventListener("click", ptrrig);
-        pbtn2[i].style.display = "initial";
-        pbtn1[i].addEventListener("click", ptrlef);
-    }
-}
-function ptrrig(){
-    // console.log("executed");
-    var m = event.srcElement.parentElement;
-    var n = m.childNodes[3];
-    var o = m.childNodes[5];
-    m = m.childNodes[1];
-    // console.log(m);
-    m.className = 'btn-transform0';
-    o.style.display = "none";
-    n.style.display = "initial";
-    // console.log("asdad",o);
-}
-function ptrlef(){
-    // console.log("executed");
-    var m = event.srcElement.parentElement;
-    var n = m.childNodes[5];
-    var o = m.childNodes[3];
-    m = m.childNodes[1];
-    // console.log(m);
-    m.className = 'btn-transform1';
-    o.style.display = "none";
-    n.style.display = "initial";
-}
+// function pbtn(){
+//     var pbtn2 = document.getElementsByClassName("p-btn1");
+//     var pbtn1 = document.getElementsByClassName("p-btn0");
+//     for( var i = 0; i < pbtn2.length; i++){
+//         pbtn2[i].addEventListener("click", ptrrig);
+//         pbtn2[i].style.display = "initial";
+//         pbtn1[i].addEventListener("click", ptrlef);
+//     }
+// }
+// function ptrrig(){
+//     var m = event.srcElement.parentElement;
+//     var n = m.childNodes[3];
+//     var o = m.childNodes[5];
+//     m = m.childNodes[1];
+//     m.className = 'btn-transform0';
+//     o.style.display = "none";
+//     n.style.display = "initial";
+// }
+// function ptrlef(){
+//     var m = event.srcElement.parentElement;
+//     var n = m.childNodes[5];
+//     var o = m.childNodes[3];
+//     m = m.childNodes[1];
+//     m.className = 'btn-transform1';
+//     o.style.display = "none";
+//     n.style.display = "initial";
+// }
 function add(){
     var elem = event.srcElement.parentNode;
     console.log(elem);

@@ -111,8 +111,7 @@
                             </div>
                             <div class="products">
                                 <ul id="smartphones"></ul>
-                                <button class="p-btn0">&#10094;</button>
-                                <button class="p-btn1">&#10095;</button>
+                                <button id="toggle-btn1">&#711;</button>
                             </div>
                         </div>
                         <div class="sec-c-02">
@@ -121,8 +120,7 @@
                             </div>
                             <div class="products">
                                 <ul id="watches"></ul>
-                                <button class="p-btn0">&#10094;</button>
-                                <button class="p-btn1">&#10095;</button>
+                                <button id="toggle-btn2">&#711;</button>
                             </div>
                         </div>
                         <div class="sec-c-03">
@@ -131,8 +129,7 @@
                             </div>
                             <div class="products">
                                 <ul id="health"></ul>
-                                <button class="p-btn0">&#10094;</button>
-                                <button class="p-btn1">&#10095;</button>
+                                <button id="toggle-btn3">&#711;</button>
                             </div>
                         </div>
                         <div class="sec-c-04">
@@ -160,6 +157,16 @@
     </div>
     <script src="assets/javascript/jquery-3.3.1.min.js"></script>
     <script>
+        $("#toggle-btn1").click(function(){
+            $("#toggle1").slideToggle(300);
+            $("#toggle1").addClass(".togg");
+        });
+        $("#toggle-btn2").click(function(){
+            $("#toggle2").slideToggle(300);
+        });
+        $("#toggle-btn3").click(function(){
+            $("#toggle3").slideToggle(300);
+        });
         $(window).scroll(function(){
             var s = $(this).scrollTop();
             // console.log(s);
