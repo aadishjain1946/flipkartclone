@@ -1,6 +1,7 @@
 .contain{
     width: 98%;
     margin: 0 auto;
+    margin-top: 50px;
     overflow: hidden;
 }
 #content .sec-c-09{

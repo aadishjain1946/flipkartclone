@@ -590,6 +590,7 @@ ul{
 
     #slider{
         height: 200px;
+        margin-top: 90px;
     }
     #slider .myslides img{
         height: 100%;
