@@ -14,6 +14,7 @@ function load(){
     intro.style.display = "none"; 
     container.style.display = "initial"; 
     showDivs(slideIndex);
+    loadProducts();
     document.getElementById("btn-clk0").addEventListener("click",minus);
     document.getElementById("btn-clk1").addEventListener("click",plus);
     showAllProducts();
