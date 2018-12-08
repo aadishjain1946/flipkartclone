@@ -13,6 +13,13 @@ function loadProducts(){
 }
 function cartCount(){
     count = obj.cartCounter();
+    emp = document.getElementById("empt");
+    if(count != 0){
+        emp.style.display = 'none';
+    }
+    else if(count == 0){
+        emp.style.display = 'initial';
+    }
     document.getElementById("counter1").innerHTML = count;
     document.getElementById("counter").innerHTML = count;
 }
