@@ -469,6 +469,128 @@ ul{
 #noresult img{
     width: 50%;
 }
+
+/* ---------------------------FOOTER--------------------------------------------- */
+#footer{
+    background-color: #172337;
+    padding-top:1px; 
+    width: 100%;
+}
+#footer .sectf1 ul{
+    /* display: block; */
+    margin: 50px 0px 30px 0px;
+}
+#footer .sectf1 ul li{
+    display: inline-block;
+    margin-left: 30px;
+}
+#footer .sectf1 ul li a{
+     letter-spacing: 3px;
+     font-size: 12px;
+     color: #ffff;
+     transition: 0.5s;
+}
+#footer .sectf1 ul li:hover a{
+    color: #AB7442;
+}
+#footer .sectf2{
+    display: flex;
+    justify-content: space-between;
+}
+#footer .sectf1 ul{
+    text-align: center;
+}
+#footer .sectf2 .colmf{
+    text-align: center;
+}
+#footer .sectf2 h5{
+    font-weight: 600;
+}
+#footer .sectf2 .colmf a{
+    color: #ffff;
+}
+#footer .sectf2 .colmf a h1{
+    margin-bottom: 17px;
+}
+#footer .sectf2 .colmf p{
+    color: #FFBD00;
+    font-size: 12px;
+    letter-spacing: 15px;
+}
+#footer .sectf2 .colmf1{
+    text-align: center;
+}
+#footer .sectf2 .colmf1 h5{
+    color: #FFBD00;
+    letter-spacing: 1px;
+}
+#footer .sectf2 .colmf1 a,p{
+    color: #ffff;
+}
+#footer .sectf2 .colmf1 .i-anim{
+    display: block;
+    margin-top: 25px;
+}
+#footer .sectf2 .colmf1 .i-anim i{
+    margin-left: 10px;
+    font-size: 13px;
+}
+#footer .sectf2 .colmf1 .i-anim a:first-child:hover,a:last-child:hover i{
+    color: #36476D;
+}
+#footer .sectf2 .colmf1 .i-anim a:nth-child(2):hover i{
+    color: #55ACEE;
+}
+#footer .sectf2 .colmf1 .i-anim a:nth-child(3):hover i{
+    color: #E96222;
+}
+#footer .sectf2 .p-des p{
+    color: #FFFF;
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 25px;
+}
+#footer .sectf2 .p-des h5{
+    margin-bottom: 15px;
+}
+#footer .sectf2 .i-des i,p{
+    display: inline-block;
+    font-size: 15px;
+}
+#footer .sectf2 .i-des i{
+    color: #FFBD00;
+    margin-right: 10px;
+}
+#footer .sectf2 .i-des span{
+    display: block;
+    margin-bottom: 15px;
+}
+#footer .sectf3{
+    text-align: center;
+    margin-top: 45px;
+}
+#footer .sectf3 p{
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+#footer .sectf3 a{
+    color: #ffff;
+    border-bottom: 1px solid #ffff;
+    transition: 1s;
+}
+#footer .sectf3 a:hover{
+    color: #FFBD00;
+    border: none;
+}
+#footer .sectf4{
+    text-align: center;
+    margin-top: 0px;
+}
+#footer .sectf3 img{
+    height: 50px;
+    width: 50px;
+}
 /* -----------------------------------------MEDIA QUERIES----------------------------------------- */
 @media(min-width:1200px){
     body{
@@ -527,6 +649,12 @@ ul{
     }
     #content .products .p-btn0,.p-btn1{
         opacity: 0;
+    }
+    #footer .sectf2{
+        display: block;
+    }
+    #footer .sectf2 h5{
+        margin-top: 15px;
     }
 }@media(max-width:768px){
     .container{
